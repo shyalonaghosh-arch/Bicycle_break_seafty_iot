@@ -1,0 +1,21 @@
+int senval=0;
+int outputval=0;
+
+void setup()
+{
+  pinMode(9, OUTPUT); 
+  pinMode(A0, INPUT);  
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  senval=analogRead(A0);
+ outputval=map(senval,0,1023,0,255);
+  analogWrite(9,outputval);
+  
+  Serial.print("Sensor = ");
+  Serial.print(senval);
+  Serial.print(" | Output = ");
+  delay(10);
+}
